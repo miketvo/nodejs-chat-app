@@ -9,31 +9,7 @@
 </head>
 <body>
   <main>
-    <div class="messages-container">
-      <div class="msg-in">
-        <div class="name">Lorem</div>
-        <div class="msg">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ut massa odio. Nulla iaculis luctus leo, eu consectetur purus finibus quis. In hac habitasse platea dictumst. Phasellus at est quis magna suscipit dictum eu vel nibh. Nunc magna purus, consequat sit amet venenatis quis, mollis eu risus. Sed lectus enim, vulputate sed nibh non, eleifend gravida metus. Quisque pharetra nisi ac tincidunt dignissim. Mauris commodo rhoncus sem nec suscipit. Sed vehicula placerat tincidunt. Aliquam erat volutpat. Nam ultrices, dui id dictum luctus, neque elit semper massa, eu vehicula ante neque eu orci.
-        </div>
-      </div>
-      <div class="msg-out">
-        <div class="name">Ipsum</div>
-        <div class="msg">
-          Nulla facilisi. Fusce semper metus blandit urna gravida convallis. Maecenas eget aliquam leo. Suspendisse potenti. Fusce ex dolor, hendrerit vehicula ante nec, efficitur pellentesque nibh. Vivamus porta sagittis posuere. In scelerisque felis non urna pharetra volutpat. Pellentesque non gravida ligula, non tincidunt metus. Curabitur a leo vitae libero consectetur molestie condimentum sit amet nulla. Ut bibendum fringilla felis sit amet pretium. Etiam finibus feugiat felis ac tempor. Duis suscipit nisi in lacus porttitor interdum. Nulla non euismod erat. Sed nec convallis mi, in congue quam.
-        </div>
-      </div>
-      <div class="msg-in">
-        <div class="name">Lorem</div>
-        <div class="msg">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ut massa odio. Nulla iaculis luctus leo, eu consectetur purus finibus quis. In hac habitasse platea dictumst. Phasellus at est quis magna suscipit dictum eu vel nibh. Nunc magna purus, consequat sit amet venenatis quis, mollis eu risus. Sed lectus enim, vulputate sed nibh non, eleifend gravida metus. Quisque pharetra nisi ac tincidunt dignissim. Mauris commodo rhoncus sem nec suscipit. Sed vehicula placerat tincidunt. Aliquam erat volutpat. Nam ultrices, dui id dictum luctus, neque elit semper massa, eu vehicula ante neque eu orci.
-        </div>
-      </div>
-      <div class="msg-in">
-        <div class="name">Dolor</div>
-        <div class="msg">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ut massa odio. Nulla iaculis luctus leo, eu consectetur purus finibus quis. In hac habitasse platea dictumst. Phasellus at est quis magna suscipit dictum eu vel nibh. Nunc magna purus, consequat sit amet venenatis quis, mollis eu risus. Sed lectus enim, vulputate sed nibh non, eleifend gravida metus. Quisque pharetra nisi ac tincidunt dignissim. Mauris commodo rhoncus sem nec suscipit. Sed vehicula placerat tincidunt. Aliquam erat volutpat. Nam ultrices, dui id dictum luctus, neque elit semper massa, eu vehicula ante neque eu orci.
-        </div>
-      </div>
+    <div class="messages-container" id="message-container">
       <div class="msg-in">
         <div class="name">Lorem</div>
         <div class="msg">
@@ -47,14 +23,14 @@
         </div>
       </div>
     </div>
-    <form class="chat">
+    <form class="chat" id="chat" method="post">
       <div class="group group-name">
         <label for="name-box">Name</label>
-        <input id="name-box" type="text" placeholder="Your name">
+        <input required id="name-box" name="name" type="text" placeholder="Your name">
       </div>
       <div class="group group-chat">
         <label for="chat-box">Chat</label>
-        <textarea id="chat-box" placeholder="Enter message here"></textarea>
+        <textarea required id="chat-box" name="content" placeholder="Enter message here"></textarea>
         <button type="submit" class="send">SEND</button>
       </div>
     </form>
