@@ -1,2 +1,2 @@
 # nodejs-chat-app
-Study Repository
+Study Project
