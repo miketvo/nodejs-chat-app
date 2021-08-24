@@ -1,59 +1,35 @@
-const messageContainer = document.getElementById("message-container");
-const chat = document.getElementById("chat");
-const url = window.location.href;
+const messageContainer = $("#message-container");
+const url = window.location.origin;
 console.log("Client Javascript running on", url);
 
-window.addEventListener("load", () => {
-  updateMessageContainer();
-});
-
-chat.addEventListener("submit", e => {
-  e.preventDefault();
-  sendMessage();
-  updateMessageContainer();
-});
-
-const updateMessageContainer = () => {
-  let messages = [];
-  getMessages(res => {
-    messages = res;
+$(() => {
+  $("#send").click(() => {
+    sendMessage({
+      name: $("#name-box").val(),
+      message: $("#chat-box").val(),
+    });
   });
-  console.log(messages);
+  getMessages();
+});
 
+const updateMessages = messages => {
   messageContainer.innerHTML = "";
-  messages.forEach((message) => {
-    const msg = document.createElement("div");
-    const name = document.createElement("div").appendChild(document.createTextNode(message.name));
-    const content = document.createElement("div").appendChild(document.createTextNode(message.content));
-    msg.appendChild(name);
-    msg.appendChild(content);
-    messageContainer.appendChild(msg);
+  messages.forEach(message => {
+    messageContainer.append(`
+      <div class="msg-in">
+        <div class="name">${message.name}</div>
+        <div class="msg">${message.content}</div>
+      </div>`
+    );
   });
 }
 
-const getMessages = (response) => {
-  const XHR = new XMLHttpRequest();
-  XHR.onreadystatechange = () => {
-    if (XHR.readyState === 4 && XHR.status === 200)
-      response(XHR.responseText);
-  }
-  XHR.open("GET", url + "all-messages/", true);
-  XHR.send(null);
+const getMessages = () => {
+  $.get(url + "/messages", messages => {
+    updateMessages(messages);
+  });
 }
 
-const sendMessage = () => {
-  const XHR = new XMLHttpRequest()
-  const FD  = new FormData(chat);
-
-  console.log(FD);
-
-  XHR.addEventListener( "load", () => {
-    console.log("Send Message: Data sent and response loaded");
-  });
-  XHR.addEventListener("error", () => {
-    console.log("Send Message: Oops! Something went wrong.");
-  });
-
-  XHR.open("POST", url);
-  XHR.send(FD);
+const sendMessage = message => {
+  $.post(url + "/messages", message);
 }

@@ -17,18 +17,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname + "/public"));
 
-app.get("/all-messages", (req, res) => {
+app.get("/messages", (req, res) => {
   Message.find({}, (error, messages) => {
     res.send(messages);
     console.log(`GET ALL | ERR = ${error} | at ${Date()}`);
   })
 });
 
-app.post("/", (req, res) => {
+app.post("/messages", (req, res) => {
   const message = new Message(req.body);
+  console.log(req.body);
   message.save(error => {
     console.log(`POST | ERR = ${error} | at ${Date()}`);
   });
+  res.send(message);
 });
 
 const server = app.listen(8080, "localhost", () => {
