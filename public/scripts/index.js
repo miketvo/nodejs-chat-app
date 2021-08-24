@@ -6,7 +6,7 @@ $(() => {
   $("#send").click(() => {
     sendMessage({
       name: $("#name-box").val(),
-      message: $("#chat-box").val(),
+      content: $("#chat-box").val(),
     });
   });
   getMessages();

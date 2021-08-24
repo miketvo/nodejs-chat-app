@@ -11,7 +11,7 @@
 <body>
   <main>
     <div class="messages-container" id="message-container"></div>
-    <form class="chat">
+    <div class="chat">
       <div class="group group-name">
         <label for="name-box">Name</label>
         <input required id="name-box" name="name" type="text" placeholder="Your name" autocomplete="off">
@@ -19,9 +19,9 @@
       <div class="group group-chat">
         <label for="chat-box">Chat</label>
         <textarea required id="chat-box" name="content" placeholder="Enter message here"></textarea>
-        <button type="submit" id="send" class="send">SEND</button>
+        <button id="send" class="send">SEND</button>
       </div>
-    </form>
+    </div>
   </main>
 
   <script src="./scripts/index.js"></script>
