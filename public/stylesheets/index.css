@@ -1,7 +1,12 @@
-main {
+html, body, main {
     font-family: "Arial", sans-serif;
-    position: absolute;
-    inset: 0;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
 }
 
 .messages-container {
