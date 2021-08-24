@@ -26,7 +26,6 @@ app.get("/messages", (req, res) => {
 
 app.post("/messages", (req, res) => {
   const message = new Message(req.body);
-  console.log(req.body);
   message.save(error => {
     console.log(`POST | ERR = ${error} | at ${Date()}`);
   });
